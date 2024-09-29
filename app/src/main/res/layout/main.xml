@@ -8,16 +8,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progress_bar"/>
+
     <TextView
+        android:id="@+id/not_activated_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/module_not_activated"
-        android:id="@+id/not_activated_msg"
-        android:visibility="gone"/>
+        android:visibility="gone" />
+
     <ListView
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/list"
-        android:visibility="gone"
-        android:descendantFocusability="blocksDescendants"/>
+        android:descendantFocusability="blocksDescendants"
+        android:visibility="gone" />
 </LinearLayout>

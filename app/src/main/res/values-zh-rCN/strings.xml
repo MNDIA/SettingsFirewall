@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">设置防睛眼</string>
+    <string name="app_name">设置过滤器</string>
     <string name="module_not_activated">模块未激活。\n请在 Xposed 中激活本模块。\n作用域：\nLSPosed 用户：选择“系统框架”；\n梦境框架用户：仅选择 “设置存储”。</string>
     <string name="edit_settings_replacement">编辑设置项覆盖</string>
     <string name="replaced_with">已替换为 %s</string>
