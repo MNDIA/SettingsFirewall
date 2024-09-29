@@ -122,7 +122,7 @@ class App : Application() {
             out: MutableList<Replacement>, flag: Int, replacements: Array<Replacement>?,
             vararg ignore: String
         ) {
-            val ignoreSets: Array<Set<String?>> = arrayOfNulls<Set<*>>(ignore.size)
+            val ignoreSets: Array<Set<*>?> = arrayOfNulls<Set<*>>(ignore.size)
             for (i in ignore.indices) {
                 var set: Set<String?>
                 try {
@@ -149,7 +149,7 @@ class App : Application() {
                     throw RuntimeException(e)
                 }
                 if (TextUtils.isEmpty(key)) continue
-                for (set in ignoreSets) if (set.contains(key)) continue@outer
+                for (set in ignoreSets) if (set?.contains(key) == true) continue@outer
                 if (replacements != null) {
                     for (existing in replacements) {
                         if (key == existing.key) {

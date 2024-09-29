@@ -44,7 +44,7 @@ class SettingsFirewallService private constructor() : ISettingsFirewall.Stub() {
         }
     }
 
-    override fun getReplacements(uid: Int): Array<Replacement> {
+    override fun getReplacements(uid: Int): Array<Replacement>? {
         readLock.lock()
         try {
             val list: List<Replacement>? = policyCache[uid]
@@ -120,7 +120,7 @@ class SettingsFirewallService private constructor() : ISettingsFirewall.Stub() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) context =
                 context!!.createDeviceProtectedStorageContext()
             sharedPreferences = context!!.getSharedPreferences(FILENAME, Context.MODE_PRIVATE)
-            val uidSet = sharedPreferences.getStringSet(KEY_TARGET_UIDS, null)
+            val uidSet = sharedPreferences?.getStringSet(KEY_TARGET_UIDS, null)
             if (uidSet != null) {
                 for (uid in uidSet) {
                     try {
@@ -132,7 +132,7 @@ class SettingsFirewallService private constructor() : ISettingsFirewall.Stub() {
             }
             policyDir = context.getDir(FILENAME, Context.MODE_PRIVATE)
             XposedBridge.log("[SettingsFirewall] Load uid policy from " + policyDir)
-            val files = policyDir.listFiles() ?: return
+            val files = policyDir?.listFiles() ?: return
             for (file in files) {
                 var uid: Int
                 val filename = file.name

@@ -39,7 +39,8 @@ class Replacement(val key: String?, var value: String?, var flags: Int) : Serial
 
         @Serial
         private val serialVersionUID = 1145141919810L
-        val CREATOR: Creator<Replacement> = object : Creator<Replacement?> {
+        @JvmField
+        val CREATOR: Creator<Replacement?> = object : Creator<Replacement?> {
             override fun createFromParcel(`in`: Parcel): Replacement? {
                 return Replacement(`in`.readString(), `in`.readString(), `in`.readInt())
             }

@@ -69,7 +69,7 @@ class SettingsProviderHook : XC_MethodHook(), IXposedHookLoadPackage {
             "GET_system" -> flag = Replacement.Companion.FLAG_SYSTEM
             else -> return
         }
-        val replacement: String =
+        val replacement: String? =
             SettingsFirewallService.Companion.getReplacement(callingUid, name, flag)
         if (replacement != null) {
             val result = Bundle(1)
